@@ -1,2 +1,2 @@
 # COMP472_Assignment_2
-COMP472_Assignment_1
+COMP472_Assignment_2
