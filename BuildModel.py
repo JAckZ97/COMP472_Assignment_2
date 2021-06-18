@@ -82,7 +82,7 @@ frequency_n = frequency_list_n.sum(axis=0)
 #     remove2.close()
 # # ---------------------------------------------------------------
 
-# ------ Compute conditional probility with smoothed of 1 -------
+# ------ Compute conditional probility with smooth of 1 ---------
 wordsCount = 1
 
 with open('model.txt', 'w') as model:
@@ -122,8 +122,6 @@ with open('model.txt', 'w') as model:
 
     for x in range(0, len(tokenlize_list_positive)):
         for y in range(0, len(tokenlize_list_negative)):
-            
-            # print(tokenlize_list_positive[x], tokenlize_list_negative[y])
             # Word both have in positive reviews and negative reviews
             if tokenlize_list_positive[x] == tokenlize_list_negative[y]:
                 prob_positive : float = 0.0

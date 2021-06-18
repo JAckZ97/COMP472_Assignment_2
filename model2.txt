@@ -1,0 +1,10 @@
+No.1 brought
+1, 0.2, 0, 0.125
+No.2 spoilers
+1, 0.2, 0, 0.125
+No.3 group
+1, 0.2, 1, 0.25
+No.4 prison
+1, 0.2, 1, 0.25
+No.5 runaway
+1, 0.2, 1, 0.25
