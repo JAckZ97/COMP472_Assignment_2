@@ -99,15 +99,15 @@ for y in frequency_n:
 # ------ Compute conditional probility with smooth of 1 ---------
 wordsCount = 1
 
-with open('model.txt', 'w') as model:
+with open('Word_smoothing_filtering\model2_0.txt', 'w') as model:
     for x in range(0, len(tokenlize_list_positive)):
         # Word only in positive reviews but not in negative reviews
         if tokenlize_list_positive[x] not in tokenlize_list_negative:
             prob_positive : float = 0.0
             prob_negative : float = 0.0
 
-            prob_positive = (frequency_p[x] + 1)/(totalPositiveNum + len(tokenlize_list))
-            prob_negative = 1/(totalNegativeNum + len(tokenlize_list))
+            prob_positive = (frequency_p[x] + 2.0)/(totalPositiveNum + len(tokenlize_list) * 2.0)
+            prob_negative = 2.0 /(totalNegativeNum + len(tokenlize_list) * 2.0)
             
             try:
                 model.write("No.%d %s\n" % (wordsCount,tokenlize_list_positive[x]))
@@ -123,8 +123,8 @@ with open('model.txt', 'w') as model:
             prob_positive : float = 0.0
             prob_negative : float = 0.0
 
-            prob_positive = 1/(totalPositiveNum + len(tokenlize_list))
-            prob_negative = (frequency_n[y] + 1)/(totalNegativeNum + len(tokenlize_list))
+            prob_positive = 2.0 /(totalPositiveNum + len(tokenlize_list) * 2.0)
+            prob_negative = (frequency_n[y] + 2.0)/(totalNegativeNum + len(tokenlize_list) * 2.0)
             
             try:
                 model.write("No.%d %s\n" % (wordsCount,tokenlize_list_negative[y]))
@@ -141,8 +141,8 @@ with open('model.txt', 'w') as model:
                 prob_positive : float = 0.0
                 prob_negative : float = 0.0
 
-                prob_positive = (frequency_p[x] + 1)/(totalPositiveNum + len(tokenlize_list))
-                prob_negative = (frequency_n[y] + 1)/(totalNegativeNum + len(tokenlize_list))
+                prob_positive = (frequency_p[x] + 2.0)/(totalPositiveNum + len(tokenlize_list) * 2.0)
+                prob_negative = (frequency_n[y] + 2.0)/(totalNegativeNum + len(tokenlize_list) * 2.0)
                 
                 model.write("No.%d %s\n" % (wordsCount,tokenlize_list_positive[x]))
                 model.write(str(frequency_p[x]) + ", " + str(prob_positive) + ", " + 
