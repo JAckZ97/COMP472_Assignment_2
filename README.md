@@ -8,6 +8,7 @@ pip install pyyaml
 pip install requests
 pip install beautifulsoup4
 pip install pandas
+pip install pyenchant
 ```
 
 ### Training and testing set

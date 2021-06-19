@@ -34,7 +34,7 @@ prob_negative = count_negative / (count_positive + count_negative)
 
 # ----------------- Tokenlize testing data set ------------------
 with open('TestingReviewSet.yaml','r') as yamlfile1:
-# with open('t2.yaml','r') as yamlfile1:
+# with open('TestingReviewSet2.yaml','r') as yamlfile1:
     database = yaml.safe_load(yamlfile1) 
     for k, v in database['Reviews'].items():
         # Append all reviews in a list
@@ -136,6 +136,8 @@ with open('result.txt', 'w') as results:
         print(reviewCount-1)
     
     accuricy : float = rightNum / (rightNum + wrongNum)
+    results.write("\n")
+    results.write("--------------------------------------------------\n")
     results.write("The prediction correctness is %f" % (accuricy) + "%\n")
     results.close()
 

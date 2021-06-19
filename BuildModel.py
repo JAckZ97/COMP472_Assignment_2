@@ -1,6 +1,7 @@
 import yaml
 import math
 import numpy as np
+import enchant
 from sklearn.feature_extraction.text import CountVectorizer
 
 # ---------------- Tokenlize trainning data set -----------------
@@ -60,17 +61,19 @@ frequency_p = frequency_list_p.sum(axis=0)
 frequency_n = frequency_list_n.sum(axis=0)
 # for x in range(100):
 #     print(tokenlize_list[x])
+# print(tokenlize_list)
 # ---------------------------------------------------------------
 
 # # --------------------- Update stopword.txt ---------------------
-# # We try to remove low frequency words
-# # In our case, we remove the words have frequency of 1 as the noise
-# for x in range(0, len(frequency)):
-#     if frequency[x] == 1:
-#         remove_list.append(tokenlize_list[x])
+# # We try to remove none english word, random typing and all the numbers with low probility
+# english_check = enchant.Dict("en_US")
+
+# for x in tokenlize_list:
+#     if not english_check.check(x):
+#         remove_list.append(x)
 
 # # Load remove_list to a temp file
-# with open('remove2.txt', 'a') as remove2:
+# with open('remove.txt', 'a') as remove2:
 #     for item in remove_list:
 #         try:
 #             remove2.write("%s\n" % item)
