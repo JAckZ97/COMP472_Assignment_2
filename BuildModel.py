@@ -37,7 +37,6 @@ with open("remove.txt", "r") as remove:
     stop_list = content.split()
     remove.close()
 
-
 # Convert to lowercase and tokenlize the words
 vectorizer_p = CountVectorizer(stop_words = stop_list)
 vectorizer_n = CountVectorizer(stop_words = stop_list)
@@ -59,10 +58,8 @@ frequency_list_n = token_n.toarray()
 # frequency list
 frequency_p = frequency_list_p.sum(axis=0)
 frequency_n = frequency_list_n.sum(axis=0)
-# print(frequency_p[0])
-# print(frequency_n[0])
-# print(tokenlize_list_positive)
-# print(tokenlize_list_negative)
+# for x in range(100):
+#     print(tokenlize_list[x])
 # ---------------------------------------------------------------
 
 # # --------------------- Update stopword.txt ---------------------
@@ -113,7 +110,7 @@ with open('model.txt', 'w') as model:
             prob_negative = (frequency_n[y] + 1)/(len(tokenlize_list_negative) + len(tokenlize_list))
             
             try:
-                model.write("No.%d %s\n" % (wordsCount,tokenlize_list_positive[x]))
+                model.write("No.%d %s\n" % (wordsCount,tokenlize_list_negative[y]))
                 model.write(str(0) + ", " + str(prob_positive) + ", " + 
                             str(frequency_n[y]) + ", " + str(prob_negative) + "\n")
                 wordsCount += 1

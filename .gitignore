@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
 .vscode
+File_for_practice
+File_temp_use
