@@ -1,3 +1,10 @@
+# -------------------------------------------------------
+# Assignment 2
+# Written by Zejun Zhang (40021402)
+# For COMP 472 Section AI-X – Summer 2021
+# Team: Sonic_1
+# --------------------------------------------------------
+
 from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -53,8 +60,13 @@ Reviews:
 '''
 count = 0
 count1 = 0
+ep_review_link_list_new = []
 
-for i in ep_review_link_list:
+# Load reveiw link list to a new list
+rd = pd.read_csv('data.csv')
+ep_review_link_list_new = rd['Review Link'].tolist()
+
+for i in ep_review_link_list_new:
     response = get(i)
     html_soup = BeautifulSoup(response.text, 'html.parser')
     movie_containers = html_soup.find_all('div', class_ = 'imdb-user-review')

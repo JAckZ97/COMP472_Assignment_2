@@ -8,6 +8,9 @@ pip install pyyaml
 pip install requests
 pip install beautifulsoup4
 pip install pandas
+pip install pyenchant
+pip install matplotlib
+pip install numpy
 ```
 
 ### Training and testing set
@@ -20,11 +23,14 @@ pip install pandas
 ### Remove list (stop_word)
 - Original stopword.txt from moodle
 - All the numbers with low probility considerd as noise
-- TO ADD:
-    - None english word
-    - Random typing
+- None english word
+- Random typing
 
 ### TODO
-- Optimal task 1.3 (3 for loop overlap)
-    - Create dictionary for check prob value
-    - Or yaml file to store prob value with yaml search function
+~~- Optimal task 1.3 (3 for loop overlap)~~  
+~~- Create dictionary for check prob value~~  
+~~- Or yaml file to store prob value with yaml search function~~
+~~- complete task 2.1 or 2.2 or 2.3 one of them~~
+~~- prepare README~~
+- maybe try task 2.1 if have time
+- prepare demo procedure (jupyter notebook)

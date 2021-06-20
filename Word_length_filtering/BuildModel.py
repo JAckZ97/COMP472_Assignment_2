@@ -24,8 +24,7 @@ totalPositiveNum = 0
 totalNegativeNum = 0
 
 # Load reviews
-with open('TrainingReviewSet.yaml','r') as yamlfile:
-# with open('t1.yaml','r') as yamlfile:
+with open('Word_length_filtering\TrainingReviewSet.yaml','r') as yamlfile:
     database = yaml.safe_load(yamlfile) 
     for k, v in database['Reviews'].items():
         # Append positive reviews in a list
@@ -42,7 +41,7 @@ with open('TrainingReviewSet.yaml','r') as yamlfile:
         corpus.append(database['Reviews'][k]["text"])
 
 # Load remove.txt into a list
-with open("remove.txt", "r") as remove:
+with open("remove_greater_than_9.txt", "r") as remove:
     content = remove.read() 
     stop_list = content.split()
     remove.close()
@@ -86,8 +85,12 @@ for y in frequency_n:
 #     if not english_check.check(x):
 #         remove_list.append(x)
 
+# for x in tokenlize_list:
+#     if len(x) >= 9:
+#         remove_list.append(x)
+
 # # Load remove_list to a temp file
-# with open('remove.txt', 'a') as remove2:
+# with open('remove_greater_than_9.txt', 'a') as remove2:
 #     for item in remove_list:
 #         try:
 #             remove2.write("%s\n" % item)
@@ -99,7 +102,7 @@ for y in frequency_n:
 # ------ Compute conditional probility with smooth of 1 ---------
 wordsCount = 1
 
-with open('model.txt', 'w') as model:
+with open('Word_length_filtering\model_9.txt', 'w') as model:
     for x in range(0, len(tokenlize_list_positive)):
         # Word only in positive reviews but not in negative reviews
         if tokenlize_list_positive[x] not in tokenlize_list_negative:

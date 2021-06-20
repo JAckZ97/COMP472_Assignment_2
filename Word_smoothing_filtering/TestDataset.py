@@ -23,7 +23,8 @@ item_list = [[]]
 result_list = []
 
 # ------- Get probility of potive and negative in reviews -------
-with open('TrainingReviewSet.yaml','r') as yamlfile:
+with open('Word_smoothing_filtering\TrainingReviewSet.yaml','r') as yamlfile:
+# with open('t1.yaml','r') as yamlfile:
     database = yaml.safe_load(yamlfile) 
     for k, v in database['Reviews'].items():
 
@@ -39,7 +40,8 @@ prob_negative = count_negative / (count_positive + count_negative)
 
 
 # ----------------- Tokenlize testing data set ------------------
-with open('TestingReviewSet.yaml','r') as yamlfile1:
+with open('Word_smoothing_filtering\TestingReviewSet.yaml','r') as yamlfile1:
+# with open('TestingReviewSet2.yaml','r') as yamlfile1:
     database = yaml.safe_load(yamlfile1) 
     for k, v in database['Reviews'].items():
         # Append all reviews in a list
@@ -57,7 +59,7 @@ frequency_list = token.toarray()
 
 # ----------------- Load model.txt into a list ------------------
 count = 0
-with open("model.txt", "r") as model:
+with open("Word_smoothing_filtering\model2_0.txt", "r") as model:
     for count, line in enumerate(model):
         temp_list = []
 
@@ -85,7 +87,7 @@ reviewCount = 1
 rightNum = 0
 wrongNum = 0
 
-with open('result.txt', 'w', encoding='utf-8') as results:
+with open('result2_0.txt', 'w') as results:
     # Example: frequency_list = [[1 0 1 0 3][1 3 4 0 1]]
     for x in range(0, len(frequency_list)):
         prob_word_positive : float = 0.0
@@ -100,7 +102,8 @@ with open('result.txt', 'w', encoding='utf-8') as results:
 
                         prob_word_positive += math.log10(float(item_list[2*z +1][0]))
                         prob_word_negative += math.log10(float(item_list[2*z +1][1]))
-
+                        # print(prob_word_positive)
+                        # print(prob_word_negative)
 
         prob_word_positive += math.log10(prob_positive)
         prob_word_negative += math.log10(prob_negative)
@@ -117,16 +120,23 @@ with open('result.txt', 'w', encoding='utf-8') as results:
             correntness = "wrong"
             wrongNum += 1
 
-        results.write("No.%d -- %s\n" % (reviewCount, corpus[x]))
-        results.write(str(prob_word_positive) + ", " + str(prob_word_negative) + ", " + 
-                    result + ", " + result_list[x] + ", " + correntness + "\n")
-        reviewCount += 1
-        # print(reviewCount-1)
+        # print(prob_word_positive)
+        # print(prob_word_negative)
+        # print("======")
+
+        try:
+            results.write("No.%d -- %s\n" % (reviewCount,corpus[x]))
+            results.write(str(prob_word_positive) + ", " + str(prob_word_negative) + ", " + 
+                        result + ", " + result_list[x] + ", " + correntness + "\n")
+            reviewCount += 1
+        except:
+            pass
+        print(reviewCount-1)
     
     accuricy : float = rightNum / (rightNum + wrongNum)
     results.write("\n")
     results.write("--------------------------------------------------\n")
-    results.write("The prediction correctness is %f" % (accuricy) + " %\n")
+    results.write("The prediction correctness is %f" % (accuricy) + "%\n")
     results.close()
 
 
