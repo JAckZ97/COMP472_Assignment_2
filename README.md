@@ -29,8 +29,8 @@ pip install numpy
 ### TODO
 ~~- Optimal task 1.3 (3 for loop overlap)~~  
 ~~- Create dictionary for check prob value~~  
-~~- Or yaml file to store prob value with yaml search function~~
-~~- complete task 2.1 or 2.2 or 2.3 one of them~~
-~~- prepare README~~
+~~- Or yaml file to store prob value with yaml search function~~  
+~~- complete task 2.1 or 2.2 or 2.3 one of them~~  
+~~- prepare README~~  
 - maybe try task 2.1 if have time
 - prepare demo procedure (jupyter notebook)
