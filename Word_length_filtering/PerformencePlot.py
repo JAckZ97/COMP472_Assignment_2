@@ -54,5 +54,7 @@ bar = plt.bar(xCoor, correctness_list, label = "Percentage of accuricy")
 labelText(bar)
 plt.tight_layout()
 plt.legend()
+plt.ylim(ymax=1)
 
+plt.savefig("Word_length_filtering/Correctness_plot.png")
 plt.show()

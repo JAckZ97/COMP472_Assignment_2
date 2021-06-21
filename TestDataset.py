@@ -101,11 +101,10 @@ with open('result.txt', 'w', encoding='utf-8') as results:
                         prob_word_positive += math.log10(float(item_list[2*z +1][0]))
                         prob_word_negative += math.log10(float(item_list[2*z +1][1]))
 
-
         prob_word_positive += math.log10(prob_positive)
         prob_word_negative += math.log10(prob_negative)
         
-        if prob_positive >= prob_word_negative:
+        if prob_word_positive >= prob_word_negative:
             result = "Positive"
         else:
             result = "Negative"
@@ -121,7 +120,7 @@ with open('result.txt', 'w', encoding='utf-8') as results:
         results.write(str(prob_word_positive) + ", " + str(prob_word_negative) + ", " + 
                     result + ", " + result_list[x] + ", " + correntness + "\n")
         reviewCount += 1
-        # print(reviewCount-1)
+        print(reviewCount-1)
     
     accuricy : float = rightNum / (rightNum + wrongNum)
     results.write("\n")
