@@ -34,4 +34,4 @@ pip install numpy
 ~~- prepare README~~  
 ~~- maybe try task 2.1 if have time~~  
 ~~- prepare demo procedure (jupyter notebook)~~  
-- Try everything before submit
+~~- Try everything before submit~~  

@@ -28,3 +28,4 @@
     2.5 As the team of one, I pick Task 2.3 word length filtering.
         Go to Word_length_filtering folder and running "PerformencePlot.py" to generate bar graph of required results.
         The image "Correctness_plot.png" under Word_length_filtering folder is the saved image of results.
+        (* "length-model.txt" is the copy of "model_9.txt" and "length-result.txt" is the copy of "result_9.txt" *)
