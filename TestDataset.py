@@ -104,23 +104,26 @@ with open('result.txt', 'w', encoding='utf-8') as results:
         prob_word_positive += math.log10(prob_positive)
         prob_word_negative += math.log10(prob_negative)
         
-        if prob_word_positive >= prob_word_negative:
-            result = "Positive"
+        if corpus[x] == "default":
+            continue
         else:
-            result = "Negative"
+            if prob_word_positive >= prob_word_negative:
+                result = "Positive"
+            else:
+                result = "Negative"
 
-        if result == result_list[x]:
-            correntness = "right"
-            rightNum += 1
-        else:
-            correntness = "wrong"
-            wrongNum += 1
-
-        results.write("No.%d -- %s\n" % (reviewCount, corpus[x]))
-        results.write(str(prob_word_positive) + ", " + str(prob_word_negative) + ", " + 
-                    result + ", " + result_list[x] + ", " + correntness + "\n")
-        reviewCount += 1
-        print(reviewCount-1)
+            if result == result_list[x]:
+                correntness = "right"
+                rightNum += 1
+            else:
+                correntness = "wrong"
+                wrongNum += 1
+            
+            results.write("No.%d -- %s\n" % (reviewCount, corpus[x]))
+            results.write(str(prob_word_positive) + ", " + str(prob_word_negative) + ", " + 
+                        result + ", " + result_list[x] + ", " + correntness + "\n")
+            reviewCount += 1
+            print(reviewCount-1)
     
     accuricy : float = rightNum / (rightNum + wrongNum)
     results.write("\n")
