@@ -601,8 +601,9 @@ Reviews:
       \ again. However last time I thought the writers wouldn't be able to surpass\
       \ it but believe me, they actually did."
   -978240301:
+    count: -1
     p/n: Positive
-    score: 9
+    score: '9'
     text: default
   -963322592:
     count: 50

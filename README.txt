@@ -16,7 +16,8 @@
         By default, it will scrap the TV series "Prison Break" season 1 - 5
     
     2.2 Ignore the step 2.1 if already have the "data.csv" file. Comment out line 13 to 50 in "FetchImdbData.py" to start the program.
-        It will generate the "TrainingReviewSet.yaml" and "TestingReviewSet.yaml"
+        It will update the "PositiveReviewSet.yaml" and "NegativeReviewSet.yaml" first as the temp file, 
+        and then update the "TrainingReviewSet.yaml" and "TestingReviewSet.yaml" from those temp files.
     
     2.3 Make sure have "remove.txt" ready and running program "BuildModel.py".
         It will generate the "model.txt" based on "TrainingReviewSet.yaml"
@@ -26,3 +27,4 @@
     
     2.5 As the team of one, I pick Task 2.3 word length filtering.
         Go to Word_length_filtering folder and running "PerformencePlot.py" to generate bar graph of required results.
+        The image "Correctness_plot.png" under Word_length_filtering folder is the saved image of results.
